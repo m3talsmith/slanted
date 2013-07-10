@@ -7,7 +7,6 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', platforms: :ruby
-gem 'turbolinks'
 
 # UI gems
 gem 'jquery-rails'
@@ -18,7 +17,9 @@ gem 'underscore-rails'
 
 
 # Api gems
-gem 'jbuilder', '~> 1.2'
+gem 'jbuilder'
+gem 'rabl'
+gem 'oj'
 
 # General gems
 gem 'bcrypt-ruby', '~> 3.0.0'
