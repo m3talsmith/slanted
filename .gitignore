@@ -1,0 +1,7 @@
+/.bundle
+/log/*.log
+/tmp
+.DS_Store
+
+# Ignore Vim swap files
+*.sw*
