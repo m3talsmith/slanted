@@ -1,35 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0'
+gem 'rails', '3.2.13'
 
-# Asset gems
-gem 'sass-rails', '~> 4.0.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'therubyracer', platforms: :ruby
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'therubyracer', platforms: :ruby
+  gem 'uglifier', '>= 1.0.3'
+end
 
-# UI gems
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'haml'
 gem 'haml-rails'
+gem 'ruby-haml-js'
 gem 'underscore-rails'
-
-
-# Api gems
 gem 'jbuilder'
-gem 'rabl'
-gem 'oj'
-
-# General gems
-gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Db gems
-gem 'mongoid', github: 'mongoid/mongoid'
+gem 'mongoid', '~> 3.0'
 gem 'mongoid_slug'
 
-group :doc do
-  gem 'sdoc', require: false
+group :development do
+  gem 'puma'
 end
 
 group :production do
@@ -38,7 +29,8 @@ group :production do
 end
 
 group :development do
-  gem 'puma'
+  gem 'ruby-prof'
+  gem 'flog'
 end
 
 group :test, :development do
@@ -47,8 +39,12 @@ group :test, :development do
   gem 'capybara', '1.1.2'
   gem 'launchy'
   gem 'mongoid-rspec'
+  gem 'timecop'
   gem 'rack_session_access'
   gem 'pry'
   gem 'pry-nav'
+
+  # Pretty printed test output
   gem 'turn', require: false
 end
+

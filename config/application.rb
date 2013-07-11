@@ -1,11 +1,14 @@
 require File.expand_path('../boot', __FILE__)
 
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "sprockets/railtie"
-require "rails/test_unit/railtie"
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'active_resource/railtie'
+require 'active_model/railtie'
+require 'sprockets/railtie'
 
-Bundler.require(:default, Rails.env)
+if defined?(Bundler)
+  Bundler.require(*Rails.groups(:assets => %w(development test)))
+end
 
 module Slanted
   class Application < Rails::Application
@@ -21,5 +24,12 @@ module Slanted
       g.javascripts         false
       g.stylesheets         false
     end
+
+    config.middleware.use RackSessionAccess::Middleware if Rails.env.test?
+    
+    config.encoding = "utf-8"
+    config.active_support.escape_html_entities_in_json = true
+    config.assets.enabled = true
+    config.assets.version = '1.0'
   end
 end
