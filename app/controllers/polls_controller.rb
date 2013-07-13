@@ -1,6 +1,9 @@
 class PollsController < ApplicationController
+  def index
+    @polls = Poll.all
+  end
+
   def create
     @poll = Poll.create params[:poll]
-    render json: @poll.to_builder.target!
   end
 end
